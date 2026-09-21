@@ -8,7 +8,7 @@ const router=express.Router()
 router.get("/register",async(req,res)=>{
     try{
         const email="karthi@gmail.com"
-        const hashedPassword=await bcrypt.hash("nandha",10)
+        const hashedPassword=await bcrypt.hash("karthi@nandha2005",10)
         const user=new User({
             email:email,
             password:hashedPassword
