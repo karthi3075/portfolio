@@ -25,11 +25,19 @@ const detailSchema=new mongoose.Schema({
         type:String,
         required:true
     },
-    resume:{
+    resume_url:{
         type:String,
         required:true
     },
-    photo:{
+    resume_public_id:{
+        type:String,
+        required:true
+    },
+    photo_url:{
+        type:String,
+        required:true
+    },
+    photo_public_id:{
         type:String,
         required:true
     },
@@ -41,7 +49,11 @@ const detailSchema=new mongoose.Schema({
         type:String,
         required:true
     },
-    aboutImg:{
+    aboutImg_url:{
+        type:String,
+        required:true
+    },
+    aboutImg_public_id:{
         type:String,
         required:true
     },
