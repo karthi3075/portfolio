@@ -13,8 +13,10 @@ router.get("/register",async(req,res)=>{
             role:"Full Stack Developer",
             linkedin:"www.google.com",
             github:"www.google.com",
-            resume:"karthi_photo.jpg",
-            photo:"karthi_photo.jpg",
+            resume_url:"https://res.cloudinary.com/bq3wladw/image/upload/v1790403136/documents/1790403023039.pdf",
+            photo_url:"https://res.cloudinary.com/bq3wladw/image/upload/v1790403154/images/1790403139370.jpg",
+            resume_public_id:"documents/1790403023039",
+            photo_public_id:"images/1790403139370.jpg ",
             description:"I build modern, responsive and user-friendly web applications with clean code and great UX.",
             aboutDescription:"I am a curious and driven Full Stack Developer who enjoys building elegant, efficient and user-friendly web applications, I love turning ideas into real products that solve problems and create value.",
             aboutImg:"karthi_photo.jpg",
@@ -47,27 +49,6 @@ router.get("/view", async (req, res) => {
             message: error
         })
     }
-})
-
-router.post("/download",(req,res)=>{
-    try{
-        const {resume}=req.body
-        console.log("file will be doenloaded")
-        console.log(resume)
-        const filePath=path.join(process.cwd(),"uploads",resume)
-        console.log(filePath)
-        return res.download(filePath,resume,(err)=>{
-            if(err){
-                console.log(err.message)
-            }
-        })
-    }catch (error) {
-        console.log(error)
-        res.status(500).json({
-            status: false,
-            message: error
-        })
-    }
-})
+})  
 
 module.exports = router
