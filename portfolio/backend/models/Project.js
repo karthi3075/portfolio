@@ -5,7 +5,11 @@ const projectSchema=new mongoose.Schema({
         type:String,
         required:true
     },
-    projectImg:{
+    projectImg_url:{
+        type:String,
+        required:true
+    },
+    projectImg_public_id:{
         type:String,
         required:true
     },

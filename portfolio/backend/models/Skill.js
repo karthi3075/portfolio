@@ -9,7 +9,11 @@ const skillSchema=new mongoose.Schema({
         type:String,
         required:true
     },
-    logo:{
+    logo_url:{
+        type:String,
+        required:true
+    },
+    logo_public_id:{
         type:String,
         required:true
     },
