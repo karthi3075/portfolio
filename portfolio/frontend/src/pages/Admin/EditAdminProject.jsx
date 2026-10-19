@@ -9,6 +9,7 @@ const EditAdminProject = ({ id, setEditId, fetchProjects }) => {
 
     const [details, setDetails] = useState({})
     const [projectImg, setProjectImg] = useState("")
+    const [projectImgId,setProjectImgId]=useState("")
     const [loading, setLoading] = useState(false)
     const [saveLoading, setSaveLoading] = useState(false)
 
@@ -20,10 +21,11 @@ const EditAdminProject = ({ id, setEditId, fetchProjects }) => {
         setLoading(true)
         const response = await axios.get(`${import.meta.env.VITE_BASE_URL}/projects/view/${id}`)
         if (response.data.status) {
-            setProjectImg(response.data.project[0].projectImg)
+            setProjectImg(response.data.project[0].projectImg_url)
+            setProjectImgId(response.data.project[0].projectImg_public_id)
             reset({
                 projectName: response.data.project[0].projectName,
-                projectImg: response.data.project[0].projectImg,
+                projectImg: response.data.project[0].projectImg_url,
                 liveLink: response.data.project[0].liveLink,
                 gitLink: response.data.project[0].gitLink,
                 description: response.data.project[0].description,
@@ -45,7 +47,7 @@ const EditAdminProject = ({ id, setEditId, fetchProjects }) => {
         formData.append("id", id)
         formData.append("gitLink", data.gitLink)
         formData.append("description", data.description)
-        formData.append("prevProjectImg",projectImg)
+        formData.append("prevProjectImg",projectImgId)
         const response = await axios.patch(`${import.meta.env.VITE_BASE_URL}/projects/edit`, formData)
         if (response.data.status) {
             setEditId(null)

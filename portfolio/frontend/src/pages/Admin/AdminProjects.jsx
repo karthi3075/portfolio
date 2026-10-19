@@ -145,7 +145,7 @@ export const AdminProjects = () => {
             {details.map((project,index) => (
                     <div key={index} className='p-5 shadow bg-gray-500 inline-block rounded-md flex justify-center items-center'>
                         <div className=''>
-                            <img height={50}  src={`${import.meta.env.VITE_BASE_URL}/uploads/${project.projectImg}`} alt="" />
+                            <img height={50}  src={project.projectImg_url} alt="" />
                         </div>
                         <div>
                             <h1 className='text-2xl font-bold'>{project.projectName}</h1>

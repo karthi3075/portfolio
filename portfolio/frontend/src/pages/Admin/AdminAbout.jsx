@@ -25,7 +25,7 @@ const AdminAbout = () => {
             setDetails(response.data.details[0])
             reset({
                 aboutDescription: response.data.details[0].aboutDescription,
-                aboutImg: response.data.details[0].aboutImg
+                aboutImg: response.data.details[0].aboutImg_url
             })
         } else {
             toast.warning("details not loaded")
@@ -37,7 +37,7 @@ const AdminAbout = () => {
         setSaveLoading(true)
         const formData = new FormData()
         formData.append("aboutDescription", data.aboutDescription)
-        formData.append("prevImg", details.aboutImg)
+        formData.append("prevImg",details.aboutImg_public_id)
         if (data.aboutImg[0]) {
             formData.append("aboutImg", data.aboutImg[0])
         }
@@ -85,7 +85,7 @@ const AdminAbout = () => {
                                             required: false
                                         })}
                                     />
-                                    <img width={50} src={`${import.meta.env.VITE_BASE_URL}/uploads/${details.aboutImg}`} alt="" />
+                                    <img width={50} src={details.aboutImg_url} alt="" />
 
                                 </div>
                                 {errors.aboutImg &&

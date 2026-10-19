@@ -11,6 +11,7 @@ const EditAdminSkills = ({ id, setEditId, fetchSkills }) => {
     const [loading, setLoading] = useState(false)
     const [logo, setLogo] = useState("")
     const [saveLoading, setSaveLoading] = useState(false)
+    const [logoId,setLogoId]=useState("")
 
     useEffect(() => {
         fetchDetail()
@@ -20,11 +21,12 @@ const EditAdminSkills = ({ id, setEditId, fetchSkills }) => {
         setLoading(true)
         const response = await axios.get(`${import.meta.env.VITE_BASE_URL}/skills/view/${id}`)
         if (response.data.status) {
-            setLogo(response.data.skill[0].logo)
+            setLogo(response.data.skill[0].logo_url)
+            setLogoId(response.data.skill[0].logo_public_id)
             reset({
                 category: response.data.skill[0].category,
                 skill: response.data.skill[0].skill,
-                logo: response.data.skill[0].logo,
+                logo: response.data.skill[0].logo_public_id,
                 orderNo: response.data.skill[0].orderNo
             })
         } else {
@@ -36,6 +38,7 @@ const EditAdminSkills = ({ id, setEditId, fetchSkills }) => {
     const onSubmit = async (data) => {
         setSaveLoading(true)
         const formData = new FormData()
+        
         formData.append("category", data.category)
         if (data.logo[0]) {
             formData.append("logo", data.logo[0])
@@ -43,7 +46,7 @@ const EditAdminSkills = ({ id, setEditId, fetchSkills }) => {
         formData.append("skill", data.skill)
         formData.append("id", id)
         formData.append("orderNo", data.orderNo)
-        formData.append("prevLogo",logo)
+        formData.append("prevLogo",logoId)
 
         const response = await axios.patch(`${import.meta.env.VITE_BASE_URL}/skills/edit`, formData)
         if (response.data.status) {
@@ -103,7 +106,7 @@ const EditAdminSkills = ({ id, setEditId, fetchSkills }) => {
                                         required: false
                                     })}
                                 />
-                                <img width={25} src={`${import.meta.env.VITE_BASE_URL}/uploads/${logo}`} />
+                                <img width={25} src={logo} />
                             </div>
                             {errors.logo &&
                                 <p className='text-sm text-red-500'>{errors.logo.message}</p>

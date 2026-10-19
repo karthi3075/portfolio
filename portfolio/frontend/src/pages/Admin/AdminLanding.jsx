@@ -21,14 +21,15 @@ const AdminLanding = () => {
         const response = await axios.get(`${import.meta.env.VITE_BASE_URL}/details/view`)
         if (response.data.status) {
             setDetails(response.data.details[0])
+            console.log(response.data.details[0].photo_url)
             reset({
                 fname: response.data.details[0].fname,
                 lname: response.data.details[0].lname,
                 role: response.data.details[0].role,
                 linkedin: response.data.details[0].linkedin,
                 github: response.data.details[0].github,
-                resume: response.data.details[0].resume,
-                photo: response.data.details[0].photo,
+                resume: response.data.details[0].resume_url,
+                photo: response.data.details[0].photo_url,
                 description: response.data.details[0].description
             })
         } else {
@@ -48,8 +49,8 @@ const AdminLanding = () => {
         if (data.resume[0]) {
             formData.append("resume", data.resume[0])
         }
-        formData.append("prevPhoto", details.photo)
-        formData.append("prevResume", details.resume)
+        formData.append("prevPhoto", details.photo_public_id)
+        formData.append("prevResume", details.resume_public_id)
         if (data.photo[0]) {
             formData.append("photo", data.photo[0])
         }
@@ -163,7 +164,7 @@ const AdminLanding = () => {
                                 <p className='text-sm text-red-600'>{errors.photo.message}</p>
                             }
                         </div>
-                        <img src={`${import.meta.env.VITE_BASE_URL}/uploads/${details.photo}`} width={50} alt="" />
+                        <img src={details.photo_url} width={50} alt="" />
                     </div>
                     <div className='flex flex-col'>
                         <label htmlFor="">Description</label>

@@ -148,7 +148,7 @@ const AdminSkills = () => {
                                         <td className='px-5 py-2'>{data.category}</td>
                                         <td className='px-5 py-2'>{data.skill}</td>
                                         <td className='px-5 py-2'>
-                                            <img width={50} src={`${import.meta.env.VITE_BASE_URL}/uploads/${data.logo}`} alt="" />
+                                            <img width={50} src={data.logo_url} alt="" />
                                         </td>
                                         <td className='px-5 py-2'>{data.orderNo}</td>
                                         <td className='px-5 py-2 flex gap-3'>
