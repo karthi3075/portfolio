@@ -44,7 +44,7 @@ const About = () => {
                     </div>
                 </div>
                 <div className='mt-4 md:mt-0 flex justify-center items-center'>
-                    <img src={`${import.meta.env.VITE_BASE_URL}/uploads/${details.aboutImg}`} alt="" />
+                    <img src={details.aboutImg_url} alt="" />
                 </div>
             </div>
             <div className='mt-3'>

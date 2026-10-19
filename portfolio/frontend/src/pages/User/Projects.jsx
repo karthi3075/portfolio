@@ -38,7 +38,7 @@ const Projects = () => {
                 {details.map((project,index) => (
                     <div key={index} className='p-5 shadow bg-gray-800 inline-block rounded-md flex justify-center items-center'>
                         <div className='mb-5'>
-                            <img height={50}  src={`${import.meta.env.VITE_BASE_URL}/uploads/${project.projectImg}`} alt="" />
+                            <img height={50}  src={project.projectImg_url} alt="" />
                         </div>
                         <div>
                             <h1 className='text-2xl font-bold'>{project.projectName}</h1>

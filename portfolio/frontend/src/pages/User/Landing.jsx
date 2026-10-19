@@ -40,7 +40,7 @@ const Landing = () => {
             <h2 className='text-purple-600 text-2xl'>{details.role}</h2>
             <p className='my-2 w-75 md:w-100'>{details.description}</p>
             <div className='flex gap-5 mt-8'>
-                <motion.a whileHover={{scale:1.03}} whileTap={{scale:0.97}} href={`${import.meta.env.VITE_BASE_URL}/uploads/${details.resume}`} className='p-2 rounded-md  bg-gradient-to-r from-blue-500 to-purple-500 cursor-pointer flex gap-3'><Download/> Download Resume</motion.a>
+                <motion.a whileHover={{scale:1.03}} whileTap={{scale:0.97}} href={details.resume_url} className='p-2 rounded-md  bg-gradient-to-r from-blue-500 to-purple-500 cursor-pointer flex gap-3'><Download/> Download Resume</motion.a>
                 <motion.a whileTap={{scale:0.97}} href={details.linkedin} className='p-2 rounded-md border border-gray-700 hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-500'><img src={linkedin} width={25} /></motion.a>
                 <motion.a whileTap={{scale:0.97}} href={details.github} className='p-2 rounded-md  border border-gray-700 hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-500 '><img src={github} width={25} className=""/></motion.a>
             </div>
@@ -48,7 +48,7 @@ const Landing = () => {
         <motion.div whileHover={{scale:1.02}} transition={{duration:0.8}} className='flex justify-center items-center relative my-5 md:my-0'>
             <div className='p-5 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full blur-lg opacity-70  md:my-0 w-75 h-75'>
             </div>
-            <img src={`${import.meta.env.VITE_BASE_URL}/uploads/${details.photo}`} className='rounded-full  w-75 h-75 absolute ' alt="" />
+            <img src={details.photo_url} className='rounded-full  w-75 h-75 absolute ' alt="" />
         </motion.div>
     </motion.section>
 }

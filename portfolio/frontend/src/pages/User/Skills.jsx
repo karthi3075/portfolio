@@ -43,7 +43,7 @@ const Skills = () => {
                             {skill.items.map((item, index) => (
                                 <div key={index} className='p-3 bg-gray-700 rounded-md shadow inline-block flex flex-cols  items-center justify-center text-center cursor-pointer hover:outline hover:outline-gray-650 duration'>
                                     <div className='w-full flex justify-center'>
-                                        <img width={75} src={`${import.meta.env.VITE_BASE_URL}/uploads/${item.logo}`}  alt="" />
+                                        <img width={75} src={item.logo_url}  alt="" />
 
                                     </div>
                                     <p>{item.skill}</p>
