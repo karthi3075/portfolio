@@ -40,7 +40,7 @@ const About = () => {
                     <h1 className='text-3xl font-bold my-4'>More <span className='text-purple-600'>about me</span></h1>
                     <p className='text-wrap md:w-95' style={{whiteSpace:"pre-wrap"}}>{details.aboutDescription}</p>
                     <div className='inline-block'>
-                    <motion.a whileTap={{scale:0.97}} href={`${import.meta.env.VITE_BASE_URL}/uploads/${details.resume}`} className='hover:bg-gradient-to-br hover:from-blue-500 hover:to-purple-500 p-2 rounded-md border-1 cursor-pointer border-purple-600 mt-4 flex gap-3'><Download/>Download Resume</motion.a>
+                    <motion.a whileTap={{scale:0.97}} href={details.resume_url} className='hover:bg-gradient-to-br hover:from-blue-500 hover:to-purple-500 p-2 rounded-md border-1 cursor-pointer border-purple-600 mt-4 flex gap-3'><Download/>Download Resume</motion.a>
                     </div>
                 </div>
                 <div className='mt-4 md:mt-0 flex justify-center items-center'>
