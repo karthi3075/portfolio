@@ -76,6 +76,7 @@ const EditAdminSkills = ({ id, setEditId, fetchSkills }) => {
                                 <option value="">--Select--</option>
                                 <option value="Frontend">Frontend</option>
                                 <option value="Backend">Backend</option>
+                                <option value="Database">Database</option>
                                 <option value="Tools & Technologies">Tools & Technologies</option>
                                 <option value="Others">Others</option>
                             </select>
