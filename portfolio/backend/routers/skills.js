@@ -97,7 +97,7 @@ router.get("/show",async(req,res)=>{
             {
                 $addFields:{
                     order:{
-                        $indexOfArray:[["Frontend","Backend","Databse","Tools & Technologies","Other Skills"],"$_id"]
+                        $indexOfArray:[["Frontend","Backend","Database","Tools & Technologies","Other Skills"],"$_id"]
                     }
                 }
             },
