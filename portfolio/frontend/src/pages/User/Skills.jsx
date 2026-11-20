@@ -33,7 +33,7 @@ const Skills = () => {
                 <h2 className='text-purple-600'>MY SKILLS</h2>
                 <h1 className='text-3xl font-bold'>Skills & <span className='text-purple-600'>Technologies</span></h1>
                 <div className='w-25 h-[3px] bg-gradient-to-br from-blue-500 to-purple-500 my-2'></div>
-                <p className='w-100 text-center'>Technologies and tools I use to build modern and user-friendly web applications.</p>
+                <p className='w-75 text-center'>Technologies and tools I use to build modern, scalable and user-friendly web applications.</p>
             </div>
             <div className='md:px-30 px-10'>
                 {skills.map((skill, index) => (
